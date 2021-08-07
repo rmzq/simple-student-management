@@ -1,0 +1,37 @@
+{% extends 'management/base.html' %}
+
+{%block title%}
+Daftar Mahasiswa
+{%endblock%}
+
+{%block content%}
+<table class="table">
+  <thead class="table-dark">
+    <tr>
+        <td>#</td>
+        <td>NIM</td>
+        <td>Nama</td>
+        <td>Jurusan</td>
+        <td>Aksi</td>
+    </tr>
+  </thead>
+  <tbody>
+    {%for mhs in mahasiswa%}
+    <tr>
+        <td>#</td>
+        <td>{{mhs.nim}}</td>
+        <td>{{mhs.nama}}</td>
+        <td>{{mhs.jurusan}}</td>
+        <td>
+            <a class="btn btn-primary" href="/management/edit/{{mhs.id}}" role="button">Ubah</a>
+            <a class="btn btn-danger" href="/management/delete/{{mhs.id}}" role="button">Hapus</a>
+        </td>
+    </tr>
+    {%endfor%}
+  </tbody>
+</table>
+
+<br>  
+<br>  
+<center><a href="/management/create" class="btn btn-primary">Tambah Mahasiswa</a></center>
+{%endblock%}

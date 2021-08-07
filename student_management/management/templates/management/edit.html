@@ -1,0 +1,47 @@
+{% extends 'management/base.html' %}
+
+{%block title%}
+Edit Mahasiswa 
+{%endblock%}
+{%block content%}
+<form method="post" action="/management/update/{{mahasiswa.id}}">
+  {%csrf_token%}
+  <div class="container">
+    <div class="row g-3 align-items-center">
+      <div class="col-auto">
+        <label class="col-form-label">NIM</label>
+      </div>
+      <div class="col-auto">
+        <input type="text" name="nim" maxlength="10" required id="id_nim" value="{{mahasiswa.nim}}">
+      </div>
+    </div>
+    <div class="row g-3 align-items-center">
+      <div class="col-auto">
+        <label class="col-form-label">Nama</label>
+      </div>
+      <div class="col-auto">
+        <input type="text" name="nama" maxlength="32" required id="id_nama" value="{{mahasiswa.nama}}">
+      </div>
+    </div>
+    <div class="row g-3 align-items-center">
+      <div class="col-auto">
+        <label class="col-form-label">Jurusan</label>
+      </div>
+      <div class="col-auto">
+        <select name="jurusan" id="id_jurusan">
+          <option value="IF">INFORMATIKA</option>
+          <option value="TI">TEKNIK INDUSTRI</option>
+          <option value="TE">TEKNIK ELEKTRO</option>
+          <option value="TM">TEKNIK MESIN</option>
+          <option value="TK">TEKNIK KIMIA</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <button class="btn btn-primary" type="submit">Ubah</button>
+    </div>
+  </div>
+</form>
+
+{%endblock%}

@@ -1,0 +1,41 @@
+{% extends 'management/base.html' %}
+
+{%block title%}
+Input Mahasiswa
+{%endblock%}
+{%block content%}
+<form method="post" action="/management/create">
+  {%csrf_token%}
+  <div class="container">
+    <div class="row g-3 align-items-center">
+      <div class="col-auto">
+        <label class="col-form-label">NIM</label>
+      </div>
+      <div class="col-auto">
+        {{form.nim}}
+      </div>
+    </div>
+    <div class="row g-3 align-items-center">
+      <div class="col-auto">
+        <label class="col-form-label">Nama</label>
+      </div>
+      <div class="col-auto">
+        {{form.nama}}
+      </div>
+    </div>
+    <div class="row g-3 align-items-center">
+      <div class="col-auto">
+        <label class="col-form-label">Jurusan</label>
+      </div>
+      <div class="col-auto">
+        {{form.jurusan}}
+      </div>
+    </div>
+
+    <div class="row">
+      <button class="btn btn-primary" type="submit">Simpan</button>
+    </div>
+  </div>
+</form>
+
+{%endblock%}
